@@ -86,11 +86,11 @@ for eps in accuracy:
 
 _, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 13))
 
+ax1.plot(ts, original_values, 'k', lw=3, label='Исходная функция')
 for eps in accuracy:
     terms, err, basis_funcs, c = approximation_results[eps]
     approximate_values = [approximate_value(t, basis_funcs, c) for t in ts]
     ax1.plot(ts, approximate_values, '--', label=f'{terms} {get_term_name(terms)}, ε={eps}')
-ax1.plot(ts, original_values, 'k', lw=3, label='Исходная функция')
 
 ax1.set_xlabel('t', fontsize=12)
 ax1.set_ylabel('Значение функции', fontsize=12)
